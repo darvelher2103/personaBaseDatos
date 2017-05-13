@@ -37,17 +37,17 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txtNombreP"
+                android:id="@+id/txtCedula"
                 android:layout_weight="1"
                 android:hint="@string/cedula" />
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnBuscar"
                 android:layout_weight="1"
-                tools:text="@string/buscar" />
+                android:text="@string/buscar"
+                android:onClick="buscar" />
 
         </LinearLayout>
 
@@ -87,21 +87,19 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/masculino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rdMasculino"
                     android:layout_weight="1"
-                    tools:text="@string/masculino"
                     android:checked="true" />
 
                 <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/femenino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rdFemenino"
-                    android:layout_weight="1"
-                    tools:text="@string/femenino" />
+                    android:layout_weight="1" />
             </RadioGroup>
         </LinearLayout>
 
@@ -130,32 +128,25 @@
             android:id="@+id/chkBailar"
             android:text="@string/bailar" />
 
-        <CheckBox
-            android:text="CheckBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox4" />
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnagregar"
                 android:layout_weight="1"
-                tools:text="@string/agregar" />
+                android:text="@string/agregar"
+                android:onClick="guardar" />
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnModificar"
                 android:layout_weight="1"
-                tools:text="@string/modificar" />
+                android:text="@string/modificar" />
         </LinearLayout>
 
         <LinearLayout
@@ -164,20 +155,19 @@
             android:layout_height="match_parent">
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnEliminar"
                 android:layout_weight="1"
-                tools:text="@string/eliminar" />
+                android:text="@string/eliminar" />
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnLimpiar"
                 android:layout_weight="1"
-                tools:text="@string/limpiar" />
+                android:text="@string/limpiar"
+                android:onClick="limpia" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

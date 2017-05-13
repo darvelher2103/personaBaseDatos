@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".Listar" />
         <activity android:name=".listadoTabla"></activity>
+        <activity android:name=".Registrar"></activity>
     </application>
 
 </manifest>
