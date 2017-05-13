@@ -159,7 +159,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnEliminar"
                 android:layout_weight="1"
-                android:text="@string/eliminar" />
+                android:text="@string/eliminar"
+                android:onClick="eliminar" />
 
             <Button
                 android:layout_width="wrap_content"

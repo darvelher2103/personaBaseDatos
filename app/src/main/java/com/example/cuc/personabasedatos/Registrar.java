@@ -143,7 +143,20 @@ public class Registrar extends AppCompatActivity {
         }
     }
 
-    
+    public void eliminar(View v){
+        Persona p;
+        if (validarCedula()){
+            p= Datos.buscarPersona(getApplicationContext(), cajaCedula.getText().toString());
+            if (p!=null){
+                p.eliminar(getApplicationContext());
+                limpiar();
+                new AlertDialog.Builder(this).
+                        setMessage("Persona Eliminada Exitosamente").
+                        setCancelable(true).show();
+
+            }
+        }
+    }
 
 
 }

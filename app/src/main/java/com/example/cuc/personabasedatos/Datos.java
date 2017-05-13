@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 
 public class Datos {
+
     public static ArrayList <Persona> traerPersonas(Context contexto){
         ArrayList<Persona> personas = new ArrayList<>();
 
