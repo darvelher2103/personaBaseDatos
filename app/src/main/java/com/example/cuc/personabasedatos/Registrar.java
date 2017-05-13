@@ -26,7 +26,7 @@ public class Registrar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
-        cajaCedula = (EditText)findViewById(R.id.txtCedula);
+        cajaCedula = (EditText)findViewById(R.id.txtNombreP);
         cajaNombre = (EditText)findViewById(R.id.txtNombre);
         cajaApellido = (EditText)findViewById(R.id.txtApellido);
         rdMasculino = (RadioButton)findViewById(R.id.rdMasculino);
@@ -76,14 +76,14 @@ public class Registrar extends AppCompatActivity {
             }
 
             if (chkLeer.isChecked()){
-                pasatiempo = getResources().getString(R.string.leer)+", ";
+                pasatiempo = pasatiempo+getResources().getString(R.string.leer)+", ";
             }
 
             if (chkBailar.isChecked()){
-                pasatiempo = getResources().getString(R.string.bailar)+", ";
+                pasatiempo = pasatiempo+getResources().getString(R.string.bailar)+", ";
             }
 
-            pasatiempo = pasatiempo.substring(pasatiempo.length()-1);
+            pasatiempo = pasatiempo.substring(0,pasatiempo.length()-2);
             p = new Persona(foto, cedula, nombre, apellido, sexo, pasatiempo);
             p.guardar(getApplication());
 

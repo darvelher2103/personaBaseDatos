@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txtCedula"
+                android:id="@+id/txtNombreP"
                 android:layout_weight="1"
                 android:hint="@string/cedula" />
 
@@ -117,7 +117,7 @@
             android:id="@+id/chkProgramar" />
 
         <CheckBox
-            android:text="Leer"
+            android:text="@string/leer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/chkLeer" />
@@ -166,8 +166,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnLimpiar"
                 android:layout_weight="1"
-                android:text="@string/limpiar"
-                android:onClick="limpia" />
+                android:text="@string/limpiar" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
