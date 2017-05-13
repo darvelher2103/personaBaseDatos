@@ -54,7 +54,7 @@ public class adaptadorPersona extends BaseAdapter {
         // Capturar los objetos
 
         cajaCedula = (TextView)itemView.findViewById(R.id.txtCedulaP);
-        cajaNombre = (TextView)itemView.findViewById(R.id.txtNombreP);
+        cajaNombre = (TextView)itemView.findViewById(R.id.txtCedula);
         cajaApellido = (TextView)itemView.findViewById(R.id.txtApellidoP);
         foto = (ImageView)itemView.findViewById(R.id.imgFoto);
 

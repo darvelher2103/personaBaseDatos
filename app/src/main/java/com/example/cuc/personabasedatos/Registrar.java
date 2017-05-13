@@ -26,7 +26,7 @@ public class Registrar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
-        cajaCedula = (EditText)findViewById(R.id.txtNombreP);
+        cajaCedula = (EditText)findViewById(R.id.txtCedula);
         cajaNombre = (EditText)findViewById(R.id.txtNombre);
         cajaApellido = (EditText)findViewById(R.id.txtApellido);
         rdMasculino = (RadioButton)findViewById(R.id.rdMasculino);
@@ -123,18 +123,27 @@ public class Registrar extends AppCompatActivity {
         cajaCedula.requestFocus();
     }
 
-    public void limpia(View v){
-        cajaCedula.setText("");
-        cajaNombre.setText("");
-        cajaApellido.setText("");
-        rdMasculino.setChecked(true);
-        rdFemenino.setChecked(false);
-        chkProgramar.setChecked(false);
-        chkLeer.setChecked(false);
-        chkBailar.setChecked(false);
-
-        cajaCedula.requestFocus();
+    public void limpiar(View v){
+        limpiar();
     }
+
+    public void buscar(View v){
+        Persona p;
+        if (validarCedula()){
+            p= Datos.buscarPersona(getApplicationContext(), cajaCedula.getText().toString());
+            if (p!=null){
+                cajaNombre.setText(p.getNombre());
+                cajaApellido.setText(p.getApellido());
+                if (p.getSexo().equals(getResources().getString(R.string.masculino)))rdMasculino.setChecked(true);
+                else rdFemenino.setChecked(true);
+                if (p.getPasatiempo().contains(getResources().getString(R.string.programar)))chkProgramar.setChecked(true);
+                if (p.getPasatiempo().contains(getResources().getString(R.string.leer)))chkLeer.setChecked(true);
+                if (p.getPasatiempo().contains(getResources().getString(R.string.bailar)))chkBailar.setChecked(true);
+            }
+        }
+    }
+
+    
 
 
 }

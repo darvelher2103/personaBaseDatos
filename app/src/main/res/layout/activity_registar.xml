@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txtNombreP"
+                android:id="@+id/txtCedula"
                 android:layout_weight="1"
                 android:hint="@string/cedula" />
 
@@ -166,7 +166,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnLimpiar"
                 android:layout_weight="1"
-                android:text="@string/limpiar" />
+                android:text="@string/limpiar"
+                android:onClick="limpiar" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
