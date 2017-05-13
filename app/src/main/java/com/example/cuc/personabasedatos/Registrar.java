@@ -1,5 +1,7 @@
 package com.example.cuc.personabasedatos;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 /**
  * Created by CUC on 12/05/2017.
@@ -144,19 +147,67 @@ public class Registrar extends AppCompatActivity {
     }
 
     public void eliminar(View v){
-        Persona p;
+        final Persona p;
         if (validarCedula()){
             p= Datos.buscarPersona(getApplicationContext(), cajaCedula.getText().toString());
             if (p!=null){
-                p.eliminar(getApplicationContext());
-                limpiar();
-                new AlertDialog.Builder(this).
-                        setMessage("Persona Eliminada Exitosamente").
-                        setCancelable(true).show();
+                AlertDialog.Builder ventana = new AlertDialog.Builder(this);
+                ventana.setTitle("Confirmacion");
+                ventana.setMessage("¿Esta seguro que desea eliminar esta persona?");
+                ventana.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        p.eliminar(getApplicationContext());
+                        limpiar();
+                        Toast.makeText(getApplicationContext(),"Persona Eliminada Exitosamente",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
 
+                    }
+                })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
+
         }
     }
 
+    public void modificar(View v){
+        Persona p;
+        Persona p2;
+        String foto, cedula, nombre, apellido, sexo, pasatiempo="";
+        if (validarCedula()){
+            p = Datos.buscarPersona(getApplicationContext(), cajaCedula.getText().toString());
+            nombre = cajaNombre.getText().toString();
+            apellido = cajaApellido.getText().toString();
+
+            if (rdMasculino.isChecked()) sexo = getResources().getString(R.string.masculino);
+            else sexo = getResources().getString(R.string.femenino);
+
+            if (chkProgramar.isChecked()){
+                pasatiempo = getResources().getString(R.string.programar)+", ";
+            }
+
+            if (chkLeer.isChecked()){
+                pasatiempo = pasatiempo+getResources().getString(R.string.leer)+", ";
+            }
+
+            if (chkBailar.isChecked()){
+                pasatiempo = pasatiempo+getResources().getString(R.string.bailar)+", ";
+            }
+
+            pasatiempo = pasatiempo.substring(0,pasatiempo.length()-2);
+            p2 = new Persona(p.getFoto(), p.getCedula(), nombre, apellido, sexo, pasatiempo);
+            p2.modificar(getApplicationContext());
+
+            new AlertDialog.Builder(this).
+                    setMessage("Persona Modificada Exitosamente").
+                    setCancelable(true).show();
+
+            limpiar();
+        }
+
+    }
 
 }
